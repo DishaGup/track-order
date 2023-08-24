@@ -4,17 +4,6 @@ const authenticateToken = require('../middlewares/authMiddleware.middleware');
 
 const ItemRouter = express.Router();
 
-ItemRouter.use(authenticateToken);
-
-// Create an item
-ItemRouter.post('/items', async (req, res) => {
-  try {
-    const newItem = await ItemModel.create(req.body);
-    res.status(201).json(newItem);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 // Read all items
 ItemRouter.get('/items', async (req, res) => {
@@ -38,6 +27,18 @@ ItemRouter.get('/items/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+ItemRouter.use(authenticateToken);
+// Create an item
+ItemRouter.post('/items', async (req, res) => {
+  try {
+    const newItem = await ItemModel.create(req.body);
+    res.status(201).json(newItem);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 // Update an item
 ItemRouter.put('/items/:id', async (req, res) => {

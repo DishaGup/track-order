@@ -38,12 +38,6 @@ function perfectNumber(num) {
   }
 }
 
-// Test cases
-console.log(perfectNumber(6)); // Output: Perfect
-console.log(perfectNumber(12)); // Output: Abundant
-console.log(perfectNumber(8)); // Output: Deficient
-
-
 // 2-  Shorten me!
 
 function shortenString(input) {

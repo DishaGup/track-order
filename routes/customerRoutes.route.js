@@ -7,7 +7,7 @@ const authenticateToken = require('../middlewares/authMiddleware.middleware');
 const CustomerModel = require('../models/Customers.model');
 
 
-CustomerRouter.use(authenticateToken);
+//CustomerRouter.use(authenticateToken);
 
 // Create a customer
 CustomerRouter.post('/customers', async (req, res) => {

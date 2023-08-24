@@ -16,7 +16,8 @@ const DeliveryVehicleRouter = require('./routes/deliveryVehicleRoutes.route');
 const userRouter = require('./routes/userRoute.route');
 const OrderRouter = require('./routes/orderRoutes.route');
 const CustomerRouter = require('./routes/customerRoutes.route');
-require("dotenv").config();
+const authenticateToken = require('./middlewares/authMiddleware.middleware');
+require('dotenv').config({ debug: true })
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,7 +34,9 @@ app.use(morgan(loggingMiddleware, {
 
 app.use('/api',userRouter);
 // Use the routes
-app.use('/api', ItemRouter); // Use '/api' as the base URL for your routes
+app.use('/api', ItemRouter); 
+app.use(authenticateToken)
+// Use '/api' as the base URL for your routes
 app.use('/api', DeliveryVehicleRouter );
 
 app.use('/api',OrderRouter );

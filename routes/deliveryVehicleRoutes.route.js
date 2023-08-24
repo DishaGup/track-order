@@ -7,7 +7,7 @@ const authenticateToken = require('../middlewares/authMiddleware.middleware');
 const DeliveryVehicleModel = require('../models/DeliveryVehicle.model');
 
 
-DeliveryVehicleRouter.use(authenticateToken);
+//DeliveryVehicleRouter.use(authenticateToken);
 
 // Create a delivery vehicle
 DeliveryVehicleRouter.post('/delivery-vehicles', async (req, res) => {

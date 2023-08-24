@@ -1,0 +1,340 @@
+/**
+***
+
+     BASIC STYLING FOR CHECKING FUNCTIONALITY  
+
+***/
+
+.navbar {
+  background-color: #222;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: #222;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+}
+
+
+
+/* LoginPage.css */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  max-width: 400px;
+  border-width: 1px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 90vw;
+  padding: 16px;
+}
+
+.login-heading {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.error-message {
+  color: red;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.link-text {
+  color: blue;
+  margin-top: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.registration-container {
+  border-width: 1px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 90vw;
+  max-width: 45vw;
+  padding: 20px;
+}
+
+.registration-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.confirm-password-input {
+  display: flex;
+  align-items: center;
+}
+
+.confirm-password-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.registration-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.registration-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.link-text {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.link-text a {
+  color: #007bff;
+}
+
+
+/* ItemListPage.css */
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden; /* Initial state is hidden */
+  opacity: 0; /* Initial opacity is 0 */
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.modal.open {
+  visibility: visible; /* Show the modal */
+  opacity: 1; /* Fade in the modal */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 70%;
+  max-width: 400px;
+}
+
+/* Rest of your existing styles */
+
+/* Item Card Styling */
+.item-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.item-card-price {
+  color: #007bff;
+  margin-top: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+/* Responsive CSS */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

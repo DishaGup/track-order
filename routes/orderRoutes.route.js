@@ -9,7 +9,7 @@ const OrderModel = require('../models/Order.model');
 const ItemModel = require('../models/Items.model');
 
 
-OrderRouter.use(authenticateToken);
+//OrderRouter.use(authenticateToken);
 
 // Create an order
 OrderRouter.post('/orders', async (req, res) => {

@@ -151,3 +151,15 @@ This backend logs HTTP requests using the `morgan` middleware. Logs are written 
 The backend includes basic error handling for API routes. Errors are returned in a standardized format with appropriate HTTP status codes.
 
 ## Snapshots
+
+![homepage](https://github.com/DishaGup/track-order/assets/115460391/d85ee05d-80fc-4c47-8152-fcc4b1e26396)
+
+---
+
+![login](https://github.com/DishaGup/track-order/assets/115460391/4c998a14-94c5-4b38-becf-6e5a5fbfc124)
+
+---
+
+![order](https://github.com/DishaGup/track-order/assets/115460391/f07910ce-557f-4e2e-9c25-a58d8130589b)
+
+

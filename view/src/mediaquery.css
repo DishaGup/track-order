@@ -1,0 +1,248 @@
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES 
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 575px screen
+ */
+
+ @media (min-width: 575px) {
+
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 5.4rem;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container {
+      max-width: 540px;
+      width: 100%;
+      margin-inline: auto;
+    }
+  
+  
+  
+    /**
+     * HEADER
+     */
+  
+    .header .container { max-width: unset; }
+    .grid-list {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  
+    /* Center align text on smaller screens */
+    .text-center {
+      text-align: center;
+    }
+  
+    /* Adjust logo font size for smaller screens */
+    .logo {
+      font-size: 28px;
+    }
+  
+    /* Adjust font size for button text on smaller screens */
+    .btn {
+      font-size: 1.2rem;
+    }
+  
+  }
+  
+  
+  
+  /**
+   * responsive for large than 768px screen
+   */
+  
+@media (max-width: 768px) {
+  .order-table th, .order-table td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+  @media (min-width: 768px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 7rem;
+      --fs-2: 4rem;
+      --fs-4: 3.5rem;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 720px; }
+  
+    .btn { padding: 16px 32px; }
+  
+    .section-text.text-center {
+      max-width: 50ch;
+      margin-inline: auto;
+    }
+  
+    .btn-link { --fs-12: 1.4rem; }
+  
+ 
+  /**
+   * HERO
+   */
+
+   .hero-subtitle { --fs-12: 1.4rem; }
+
+
+  }
+  
+  
+  
+  
+  
+  /**
+   * responsive for large than 992px screen
+   */
+  
+  @media (min-width: 992px) {
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 960px; }
+  
+  
+  
+    /**
+     * HEADER
+     */
+  
+    .nav-open-btn,
+    .navbar .wrapper,
+    .overlay { display: none; }
+  
+    .header { padding: 20px; }
+  
+    .navbar,
+    .navbar.active { all: unset; }
+  
+    .navbar-list {
+      display: flex;
+      gap: 40px;
+    }
+  
+    .navbar-link {
+      color: var(--rich-black-fogra-29-1);
+      font-weight: var(--fw-500);
+      padding-block: 0;
+    }
+  
+    .header .btn-outline {
+      display: block;
+      color: var(--go-green);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      border: 1px solid var(--go-green);
+      padding: 7px 18px;
+      transition: var(--transition-1);
+    }
+  
+    .header .btn-outline:is(:hover, :focus) {
+      background-color: var(--go-green);
+      color: var(--white);
+    }
+  
+
+
+  /**
+   * HERO
+   */
+
+   .hero { text-align: left; }
+
+   .hero .container {
+     grid-template-columns: 1fr 0.7fr;
+     align-items: center;
+   }
+ 
+   .hero-subtitle { margin-inline: 25px 0; }
+ 
+   .hero .btn-group { justify-content: flex-start; }
+ 
+  } 
+  
+  
+  
+  /**
+   * responsive for large than 1200px screen
+   */
+  
+  @media (min-width: 1200px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 7.5rem;
+      --fs-4: 3.8rem;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 1140px; }
+  
+    .btn-link { --fs-12: 1.5rem; }
+  
+  
+  
+  /**
+   * HERO
+   */
+
+   .hero {
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+  }
+  
+  
+  
+  }

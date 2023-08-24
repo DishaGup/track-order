@@ -9,7 +9,7 @@ userRouter.post("/users/login", async (req, res) => {
   const { name, password } = req.body;
   try {
     const user = await UsersModel.findOne({ name });
-    console.log(user)
+    //  console.log(user)
 
     if (user) {
       bcrypt.compare(password, user.password, (err, result) => {
@@ -69,17 +69,13 @@ userRouter.post("/users/register", async (req, res) => {
   }
 });
 
-
 userRouter.get("/users", async (req, res) => {
-    try {
-      const users = await UsersModel.find();
-      res.status(200).json({ users });
-    } catch (error) {
-      res.status(400).json({ error: error.messsage });
-    }
-  });
-  
-
-
+  try {
+    const users = await UsersModel.find();
+    res.status(200).json({ users });
+  } catch (error) {
+    res.status(400).json({ error: error.messsage });
+  }
+});
 
 module.exports = userRouter;

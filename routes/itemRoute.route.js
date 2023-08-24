@@ -1,12 +1,11 @@
-const express = require('express');
-const ItemModel = require('../models/Items.model');
-const authenticateToken = require('../middlewares/authMiddleware.middleware');
+const express = require("express");
+const ItemModel = require("../models/Items.model");
+const authenticateToken = require("../middlewares/authMiddleware.middleware");
 
 const ItemRouter = express.Router();
 
-
 // Read all items
-ItemRouter.get('/items', async (req, res) => {
+ItemRouter.get("/items", async (req, res) => {
   try {
     const items = await ItemModel.find();
     res.json(items);
@@ -16,11 +15,11 @@ ItemRouter.get('/items', async (req, res) => {
 });
 
 // Read a single item
-ItemRouter.get('/items/:id', async (req, res) => {
+ItemRouter.get("/items/:id", async (req, res) => {
   try {
     const item = await ItemModel.findById(req.params.id);
     if (!item) {
-      return res.status(404).json({ message: 'Item not found' });
+      return res.status(404).json({ message: "Item not found" });
     }
     res.json(item);
   } catch (error) {
@@ -30,7 +29,7 @@ ItemRouter.get('/items/:id', async (req, res) => {
 
 ItemRouter.use(authenticateToken);
 // Create an item
-ItemRouter.post('/items', async (req, res) => {
+ItemRouter.post("/items", async (req, res) => {
   try {
     const newItem = await ItemModel.create(req.body);
     res.status(201).json(newItem);
@@ -39,9 +38,8 @@ ItemRouter.post('/items', async (req, res) => {
   }
 });
 
-
 // Update an item
-ItemRouter.put('/items/:id', async (req, res) => {
+ItemRouter.put("/items/:id", async (req, res) => {
   try {
     const updatedItem = await ItemModel.findByIdAndUpdate(
       req.params.id,
@@ -49,7 +47,7 @@ ItemRouter.put('/items/:id', async (req, res) => {
       { new: true }
     );
     if (!updatedItem) {
-      return res.status(404).json({ message: 'Item not found' });
+      return res.status(404).json({ message: "Item not found" });
     }
     res.json(updatedItem);
   } catch (error) {
@@ -58,13 +56,13 @@ ItemRouter.put('/items/:id', async (req, res) => {
 });
 
 // Delete an item
-ItemRouter.delete('/items/:id', async (req, res) => {
+ItemRouter.delete("/items/:id", async (req, res) => {
   try {
     const deletedItem = await ItemModel.findByIdAndDelete(req.params.id);
     if (!deletedItem) {
-      return res.status(404).json({ message: 'Item not found' });
+      return res.status(404).json({ message: "Item not found" });
     }
-    res.json({ message: 'Item deleted' });
+    res.json({ message: "Item deleted" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

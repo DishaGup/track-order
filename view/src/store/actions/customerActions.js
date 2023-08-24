@@ -21,10 +21,10 @@ export const createCustomer = (customerData, token) => async (dispatch) => {
       customerData,
       config
     );
-    console.log(response);
+    //console.log(response);
     dispatch({ type: CREATE_CUSTOMER_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch({ type: CUSTOMER_REQUEST_FAILURE, payload: error.message });
   }
 };
@@ -38,10 +38,10 @@ export const fetchCustomers = (token) => async (dispatch) => {
   };
   try {
     const response = await axios.get(`${backend_url}/api/customers`, config);
-    console.log(response);
+    //console.log(response);
     dispatch({ type: FETCH_CUSTOMERS_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch({ type: CUSTOMER_REQUEST_FAILURE, payload: error.message });
   }
 };
@@ -60,10 +60,10 @@ export const updateCustomer =
         updatedData,
         config
       );
-      console.log(response);
+      //console.log(response);
       dispatch({ type: UPDATE_CUSTOMER_SUCCESS, payload: response.data });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       dispatch({ type: CUSTOMER_REQUEST_FAILURE, payload: error.message });
     }
   };
@@ -79,7 +79,7 @@ export const deleteCustomer = (customerId, token) => async (dispatch) => {
     await axios.delete(`${backend_url}/api/customers/${customerId}`, config);
     dispatch({ type: DELETE_CUSTOMER_SUCCESS, payload: customerId });
   } catch (error) {
-    console.log(error);
+   // console.log(error);
     dispatch({ type: CUSTOMER_REQUEST_FAILURE, payload: error.message });
   }
 };

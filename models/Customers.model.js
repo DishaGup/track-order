@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const customerSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  city: { type: String, required: true },
-}, {
-  timestamps: true,
-});
+const customerSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    city: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
+const CustomerModel = mongoose.model("Customer", customerSchema);
 
-const CustomerModel = mongoose.model('Customer', customerSchema);
-
-module.exports = CustomerModel
+module.exports = CustomerModel;

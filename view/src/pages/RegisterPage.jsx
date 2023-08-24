@@ -45,8 +45,8 @@ const RegisterPage = () => {
 
   return (
     <div className="center">
-      <div className="registration-container">
-        <h2 className="registration-heading">Create New Account</h2>
+      <div className="registeration-container">
+        <h2 className="login-heading">Create New Account</h2>
         {error != null && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-control">
@@ -119,7 +119,7 @@ const RegisterPage = () => {
           </div>
           <button
             type="submit"
-            className="registration-button"
+            className="login-button"
             disabled={loading || !passwordsMatch} // Disable the button if passwords don't match
           >
             {loading ? "Submitting" : "Register"}

@@ -28,34 +28,40 @@ const CreateItemModal = ({ isOpen, onClose }) => {
 
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
-      <div className="modal-content">
-      <button> <AiOutlineCloseCircle onClick={onClose} /> </button>
-        <h2>Create New Item</h2>
+    <div className="modal-content">
+      <button className="modal-close-button" onClick={onClose}>
+        <AiOutlineCloseCircle />
+      </button>
+      <h2 className="h3">Create New Item</h2>
+    
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label">Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </div>
+        <div className="form-group">
+          <label className="form-label">Price:</label>
+          <input
+            type="number"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </div>
       
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label>Price:</label>
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-            />
-          </div>
-        
-          <button type="submit">Create</button>
-        </form>
-      </div>
+        <button type="submit" className="btn btn-primary">
+          Create
+        </button>
+      </form>
     </div>
+  </div>
   );
 };
 

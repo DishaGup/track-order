@@ -1,25 +1,29 @@
 // routes/orderRoutes.js
 
-const express = require('express');
+const express = require("express");
 const OrderRouter = express.Router();
-const authenticateToken = require('../middlewares/authMiddleware.middleware');
-const CustomerModel = require('../models/Customers.model');
-const DeliveryVehicleModel = require('../models/DeliveryVehicle.model');
-const OrderModel = require('../models/Order.model');
-const ItemModel = require('../models/Items.model');
-
+const authenticateToken = require("../middlewares/authMiddleware.middleware");
+const CustomerModel = require("../models/Customers.model");
+const DeliveryVehicleModel = require("../models/DeliveryVehicle.model");
+const OrderModel = require("../models/Order.model");
+const ItemModel = require("../models/Items.model");
 
 //OrderRouter.use(authenticateToken);
 
 // Create an order
-OrderRouter.post('/orders', async (req, res) => {
+OrderRouter.post("/orders", async (req, res) => {
   try {
     const { itemId, customerId } = req.body;
     const customer = await CustomerModel.findById(customerId);
-    const deliveryVehicle = await DeliveryVehicleModel.findOne({ city: customer.city, activeOrdersCount: { $lt: 2 } });
+    const deliveryVehicle = await DeliveryVehicleModel.findOne({
+      city: customer.city,
+      activeOrdersCount: { $lt: 2 },
+    });
 
     if (!deliveryVehicle) {
-      return res.status(400).json({ message: 'No available delivery vehicle.' });
+      return res
+        .status(400)
+        .json({ message: "No available delivery vehicle." });
     }
 
     const item = await ItemModel.findById(itemId);
@@ -41,15 +45,17 @@ OrderRouter.post('/orders', async (req, res) => {
 });
 
 // Mark an order as delivered
-OrderRouter.patch('/orders/:id/delivered', async (req, res) => {
+OrderRouter.patch("/orders/:id/delivered", async (req, res) => {
   try {
     const order = await OrderModel.findById(req.params.id);
     if (!order) {
-      return res.status(404).json({ message: 'Order not found.' });
+      return res.status(404).json({ message: "Order not found." });
     }
 
     order.isDelivered = true;
-    const deliveryVehicle = await DeliveryVehicleModel.findById(order.deliveryVehicleId);
+    const deliveryVehicle = await DeliveryVehicleModel.findById(
+      order.deliveryVehicleId
+    );
 
     if (deliveryVehicle) {
       deliveryVehicle.activeOrdersCount--;
@@ -64,7 +70,7 @@ OrderRouter.patch('/orders/:id/delivered', async (req, res) => {
 });
 
 // Read all orders
-OrderRouter.get('/orders', async (req, res) => {
+OrderRouter.get("/orders", async (req, res) => {
   try {
     const orders = await OrderModel.find();
     res.json(orders);
@@ -74,11 +80,11 @@ OrderRouter.get('/orders', async (req, res) => {
 });
 
 // Read a single order
-OrderRouter.get('/orders/:id', async (req, res) => {
+OrderRouter.get("/orders/:id", async (req, res) => {
   try {
     const order = await OrderModel.findById(req.params.id);
     if (!order) {
-      return res.status(404).json({ message: 'Order not found' });
+      return res.status(404).json({ message: "Order not found" });
     }
     res.json(order);
   } catch (error) {
@@ -87,7 +93,7 @@ OrderRouter.get('/orders/:id', async (req, res) => {
 });
 
 // Update an order
-OrderRouter.put('/orders/:id', async (req, res) => {
+OrderRouter.put("/orders/:id", async (req, res) => {
   try {
     const updatedOrder = await OrderModel.findByIdAndUpdate(
       req.params.id,
@@ -95,7 +101,7 @@ OrderRouter.put('/orders/:id', async (req, res) => {
       { new: true }
     );
     if (!updatedOrder) {
-      return res.status(404).json({ message: 'Order not found' });
+      return res.status(404).json({ message: "Order not found" });
     }
     res.json(updatedOrder);
   } catch (error) {
@@ -104,13 +110,13 @@ OrderRouter.put('/orders/:id', async (req, res) => {
 });
 
 // Delete an order
-OrderRouter.delete('/orders/:id', async (req, res) => {
+OrderRouter.delete("/orders/:id", async (req, res) => {
   try {
     const deletedOrder = await OrderModel.findByIdAndDelete(req.params.id);
     if (!deletedOrder) {
-      return res.status(404).json({ message: 'Order not found' });
+      return res.status(404).json({ message: "Order not found" });
     }
-    res.json({ message: 'Order deleted' });
+    res.json({ message: "Order deleted" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

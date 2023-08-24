@@ -12,7 +12,6 @@ const deliveryVehicleSchema = new mongoose.Schema(
   }
 );
 
-
 const DeliveryVehicleModel = mongoose.model(
   "DeliveryVehicle",
   deliveryVehicleSchema

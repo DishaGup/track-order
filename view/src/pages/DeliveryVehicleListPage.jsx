@@ -34,35 +34,37 @@ const DeliveryVehicleListPage = () => {
   };
 
   return (
-    <div>
-      <h1>Delivery Vehicle List Page</h1>
-      <div>
+    <div className="delivery-vehicle-list-container">
+      <h1 className="login-heading">Delivery Vehicle List Page</h1>
+      <div className="add-vehicle-form">
         <h2>Add New Vehicle</h2>
-        <div>
-          <label>City:</label>
+        <div className="form-group-delivery">
+          <label className="form-label-delivery">City:</label>
           <input
             type="text"
             value={newVehicleData.city}
             onChange={(e) =>
               setNewVehicleData({ ...newVehicleData, city: e.target.value })
             }
+            className="form-input-delivery"
           />
         </div>
-        <div>
-
-          <label>Vehicle Type:</label>
-          <select   value={newVehicleData.vehicleType}
+        <div className="form-group-delivery">
+          <label className="form-label-delivery">Vehicle Type:</label>
+          <select
+            value={newVehicleData.vehicleType}
             onChange={(e) =>
               setNewVehicleData({ ...newVehicleData, vehicleType: e.target.value })
-            }>
-              <option value="">Select Vehicle</option>
+            }
+            className="form-input-delivery"
+          >
+            <option value="">Select Vehicle</option>
             <option value="bike">Bike</option>
             <option value="truck">Truck</option>
           </select>
-  
         </div>
-        <div>
-          <label>Registration No.:</label>
+        <div className="form-group-delivery">
+          <label className="form-label-delivery">Registration No.:</label>
           <input
             type="text"
             value={newVehicleData.registrationNumber}
@@ -72,20 +74,23 @@ const DeliveryVehicleListPage = () => {
                 registrationNumber: e.target.value,
               })
             }
+            className="form-input-delivery"
           />
         </div>
-        <button onClick={handleCreateVehicle}>Create Vehicle</button>
+        <button onClick={handleCreateVehicle} className="create-vehicle-button">
+          Create Vehicle
+        </button>
       </div>
-      <ul>
+      <ul className="vehicle-list">
         {deliveryVehicles.map((vehicle) => (
-          <li key={vehicle._id}>
+          <li key={vehicle._id} className="vehicle-item">
             Vehicle ID: {vehicle._id}, City: {vehicle.city}, Active Orders:{" "}
             {vehicle.activeOrdersCount}, Vehicle Type: {vehicle.vehicleType},
             Registration No.: {vehicle.registrationNumber}
           </li>
         ))}
       </ul>
-      <div>{error != null && <>{error} </>}</div>
+      <div className="error-message">{error != null && <>{error} </>}</div>
     </div>
   );
 };

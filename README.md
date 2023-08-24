@@ -11,17 +11,88 @@ Welcome to the backend repository of the Logistics Management System. This syste
 - [Logging](#logging)
 - [Error Handling](#error-handling)
 
-
 ## Introduction
 
 This backend repository contains the server code for the Logistics Management System. It's built using the MERN (MongoDB, Express, React, Node.js) stack and provides APIs for managing items, customers, delivery vehicles, and orders.
 
 ## Getting Started
 
-1. Clone this repository to your local machine.
-2. Install the required dependencies using `npm install`.
-3. Configure your environment variables in a `.env` file.
-4. Start the server using `npm start`.
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/DishaGup/track-order.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd view
+
+   ```
+
+3. Install backend dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Install frontend dependencies:
+   ```
+   cd view
+   npm install
+   ```
+
+## Usage
+
+1. Start the backend server:
+
+   ```
+   npm server
+   ```
+
+   The backend server will run on http://localhost:8080.
+
+2. Start the frontend development server:
+
+   ```
+   cd view
+   npm start
+   ```
+
+   The frontend development server will run on http://localhost:3000.
+
+## Technologies
+
+- Backend:
+
+  - Node.js
+  - Express.js
+  - MongoDB (or your chosen database)
+  - Bcrypt.js (for user authentication)
+  - JWT (JSON Web Tokens) for secure user sessions
+
+- Frontend:
+  - React
+  - React Router (for routing)
+  - Redux (for state management)
+  - Axios (for API requests)
+
+---
+
+### Environment Variables
+
+#### Backend Environment Variables
+
+Create a `.env` file in your backend project's root directory and add the following environment variables:
+
+```dotenv
+MongoDB_URL = YOUR_MONDO_DB_URL
+PORT = 8000
+
+```
+
+- `MongoDB_URL`: MongoDB connection URL.
+- `PORT`: Port number for the backend server.
 
 ## API Documentation
 
@@ -79,3 +150,4 @@ This backend logs HTTP requests using the `morgan` middleware. Logs are written 
 
 The backend includes basic error handling for API routes. Errors are returned in a standardized format with appropriate HTTP status codes.
 
+## Snapshots

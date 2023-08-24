@@ -5,6 +5,5 @@ require("dotenv").config();
 
 const connection = mongoose.connect(process.env.MongoDB_URL);
 
-// exports --->
 
 module.exports = connection;

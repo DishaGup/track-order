@@ -15,10 +15,10 @@ export const loginRequest = (data) => async (dispatch) => {
     // Make a POST request to the login endpoint
     const res = await axios.post(`${backend_url}/api/users/login`, data);
     dispatch({ type: USER_LOGIN_REQUEST_SUCCESS, payload: res.data }); // Dispatch a user login request success action
-    // console.log(res)
+     //console.log(res)
    
   } catch (error) {
-    
+    //console.log(error)
     dispatch({ type: USER_GET_REQUEST_FAILURE, payload: error }); // Dispatch a user request failure action
 
   
@@ -32,12 +32,12 @@ export const registerRequest = (data) => async (dispatch) => {
   try {
  
     const res = await axios.post(`${backend_url}/api/users/register`, data);
-    // console.log(res)
+    //console.log(res)
 
-    dispatch({ type: USER_REGISTER_REQUEST_SUCCESS });
+    dispatch({ type: USER_REGISTER_REQUEST_SUCCESS ,payload:res.data});
  
   } catch (error) {
-  //  console.log(error);
+  //console.log(error);
     dispatch({ type: USER_GET_REQUEST_FAILURE, payload: error }); // Dispatch a user request failure action
     
   }

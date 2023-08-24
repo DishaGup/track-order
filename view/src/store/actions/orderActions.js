@@ -26,11 +26,11 @@ export const createOrder = (orderData, token) => async (dispatch) => {
       orderData,
       config
     );
-    console.log(response);
+    //console.log(response);
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: CREATE_ORDER_FAILURE, payload: error });
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -46,10 +46,10 @@ export const markOrderDelivered = (orderId, token) => async (dispatch) => {
       null,
       config
     );
-    console.log(response);
+    //console.log(response);
     dispatch({ type: MARK_ORDER_DELIVERED_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch({ type: MARK_ORDER_DELIVERED_FAILURE, payload: error });
   }
 };
@@ -63,10 +63,10 @@ export const fetchOrders = (token) => async (dispatch) => {
   };
   try {
     const response = await axios.get(`${backend_url}/api/orders`, config);
-    console.log(response);
+    //console.log(response);
     dispatch({ type: FETCH_ORDERS_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch({ type: FETCH_ORDERS_FAILURE, payload: error });
   }
 };
@@ -87,10 +87,10 @@ export const updateOrder =
         updatedData,
         config
       );
-      console.log(response);
+      //console.log(response);
       dispatch({ type: UPDATE_ORDER_SUCCESS, payload: response.data });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       dispatch({ type: ORDERS_REQUEST_FAILURE, payload: error });
     }
   };
@@ -105,9 +105,9 @@ export const deleteOrder = (orderId, token) => async (dispatch) => {
     };
     await axios.delete(`${backend_url}/api/orders/${orderId}`, config);
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: orderId });
-    // console.log(response)
+   
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch({ type: ORDERS_REQUEST_FAILURE, payload: error });
   }
 };

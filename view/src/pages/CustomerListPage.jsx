@@ -30,18 +30,42 @@ e.preventDefault()
  dispatch(createCustomer(formData,token))
   }
   return (
-    <div>
-    <h1>Customers</h1>
-    <ul>
+    <div className="customer-list-container">
+    <h1 className='login-heading'>Customers</h1>
+    <ul className="customer-list">
       {customers &&
         customers.map((customer) => (
-          <li key={customer._id}>{customer.name} -{customer.city}</li>
+          <li key={customer._id} className="customer-item">
+            {customer.name} - {customer.city}
+          </li>
         ))}
     </ul>
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
-      <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" />
-      <button type="submit">Create Customer</button>
+    <form className="customer-form" onSubmit={handleSubmit}>
+      <div className="form-group-delivery">
+        <label className="form-label-delivery">Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="form-input-delivery"
+          placeholder="Name"
+        />
+      </div>
+      <div className="form-group-delivery">
+        <label className="form-label-delivery">City:</label>
+        <input
+          type="text"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+          className="form-input"
+          placeholder="City"
+        />
+      </div>
+      <button type="submit" className="create-customer-button">
+        Create Customer
+      </button>
     </form>
   </div>
   )

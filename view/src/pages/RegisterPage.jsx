@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerRequest } from "../store/actions/authActions";
 
-
-
 const initialState = {
   name: "",
   password: "",
@@ -29,17 +27,20 @@ const RegisterPage = () => {
       [name]: value,
     }));
 
-    setPasswordsMatch(name === 'password' ? value === formData.confirmpassword : formData.password === value);
-
+    setPasswordsMatch(
+      name === "password"
+        ? value === formData.confirmpassword
+        : formData.password === value
+    );
   };
 
   const { loading, error } = useSelector((store) => store.authReducer);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-     dispatch(registerRequest(formData))
-    
+
+    dispatch(registerRequest(formData));
+
     setFormData(initialState);
   };
 
@@ -70,7 +71,7 @@ const RegisterPage = () => {
               onChange={handleChange}
               className="form-input"
               placeholder="Enter Your Phone Number"
-              pattern="\d{10}" 
+              pattern="\d{10}"
               title="Please enter a 10-digit phone number"
             />
           </div>

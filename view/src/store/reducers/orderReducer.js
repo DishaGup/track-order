@@ -7,9 +7,8 @@ import {
   FETCH_ORDERS_FAILURE,
   ORDERS_REQUEST_PENDING,
   ORDERS_REQUEST_FAILURE,
-  // Add other action types
-  UPDATE_ORDER_SUCCESS, // Add this import
-  DELETE_ORDER_SUCCESS, // Add this import
+  UPDATE_ORDER_SUCCESS,
+  DELETE_ORDER_SUCCESS,
 } from "../actions/orderActions";
 
 const initialState = {

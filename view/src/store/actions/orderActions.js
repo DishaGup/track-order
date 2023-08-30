@@ -71,7 +71,6 @@ export const fetchOrders = (token) => async (dispatch) => {
   }
 };
 
-// ... (other imports and action types)
 
 export const updateOrder =
   (orderId, updatedData, token) => async (dispatch) => {
@@ -105,7 +104,6 @@ export const deleteOrder = (orderId, token) => async (dispatch) => {
     };
     await axios.delete(`${backend_url}/api/orders/${orderId}`, config);
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: orderId });
-   
   } catch (error) {
     //console.log(error);
     dispatch({ type: ORDERS_REQUEST_FAILURE, payload: error });

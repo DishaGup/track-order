@@ -79,8 +79,7 @@ export const deleteCustomer = (customerId, token) => async (dispatch) => {
     await axios.delete(`${backend_url}/api/customers/${customerId}`, config);
     dispatch({ type: DELETE_CUSTOMER_SUCCESS, payload: customerId });
   } catch (error) {
-   // console.log(error);
+    // console.log(error);
     dispatch({ type: CUSTOMER_REQUEST_FAILURE, payload: error.message });
   }
 };
-

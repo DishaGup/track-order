@@ -54,7 +54,10 @@ const DeliveryVehicleListPage = () => {
           <select
             value={newVehicleData.vehicleType}
             onChange={(e) =>
-              setNewVehicleData({ ...newVehicleData, vehicleType: e.target.value })
+              setNewVehicleData({
+                ...newVehicleData,
+                vehicleType: e.target.value,
+              })
             }
             className="form-input-delivery"
           >

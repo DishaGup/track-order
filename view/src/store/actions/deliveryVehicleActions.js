@@ -25,13 +25,13 @@ export const createDeliveryVehicle =
         vehicleData,
         config
       );
-    //  console.log(response);
+      //  console.log(response);
       dispatch({
         type: CREATE_DELIVERY_VEHICLE_SUCCESS,
         payload: response.data,
       });
     } catch (error) {
-    //  console.log(error);
+      //  console.log(error);
       dispatch({ type: CREATE_DELIVERY_VEHICLE_FAILURE, payload: error });
     }
   };
@@ -47,12 +47,10 @@ export const fetchDeliveryVehicles = (token) => async (dispatch) => {
       `${backend_url}/api/delivery-vehicles`,
       config
     );
-  //  console.log(response);
+    //  console.log(response);
     dispatch({ type: FETCH_DELIVERY_VEHICLES_SUCCESS, payload: response.data });
   } catch (error) {
-   // console.log(error);
+    // console.log(error);
     dispatch({ type: FETCH_DELIVERY_VEHICLES_FAILURE, payload: error });
   }
 };
-
-
